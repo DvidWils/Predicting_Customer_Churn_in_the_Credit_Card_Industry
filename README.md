@@ -60,6 +60,13 @@ This project answers key business questions that stakeholders care about:
 | April 20       | Group presentation prep and review                 |
 | **April 21**   |  **Project Due – Submit and Present**              |
 
+
+---
+
+
+![02885488-7135-46b2-9759-433d4f13700250](https://github.com/user-attachments/assets/6fe0eb84-3d4d-4249-beb1-08f3ee9ec5e7)
+
+
 ---
 
 ## Machine Learning Strategy
