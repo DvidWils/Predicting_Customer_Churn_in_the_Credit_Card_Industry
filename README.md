@@ -3,10 +3,10 @@
 ---
 
 ## Team Members
-### James Garcia
-### David Williams
-### Svetlana Kachina
-### Ilknur Toptas
+- James Garcia
+- David Williams
+- Svetlana Kachina
+- Ilknur Toptas
 
 ---
 
