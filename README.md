@@ -1,74 +1,156 @@
-# Credit Card Transaction Fraud Prediction
-
----
-
-## Team Members
-- James Garcia
-- David Williams
-- Svetlana Kachina
-- Ilknur Toptas
-
----
+# Predicting Customer Churn in the Credit Card Industry
 
 ## Project Overview
-This project blends machine learning with fintech, aiming to build a smart system that helps detect fraudulent credit card transactions in real time. It’s all about helping financial institutions and fintech apps make faster, better decisions to protect users.
-
-- Build a machine learning model that flags fraudulent transactions.
-- Use SQL or Spark to pull and process transaction data.
-- Clean, normalize, and prep the data to ensure solid model training.
-- Continuously improve the model by testing and tuning.
-- Document the full process in a professional GitHub repository.
+This project addresses a key challenge faced by financial institutions: **customer churn**. Using machine learning, we developed a predictive model that determines whether a customer is likely to attrite (cancel their credit card account). By identifying at-risk customers, banks and credit card providers can take proactive steps to improve retention, reduce revenue loss, and better serve their clientele.
 
 ---
-## Model Development Overview:
-- Write a Python script to train, test, and make predictions with our model.
-- Clean and normalize numeric fields, encode categorical variables.
-- Query the dataset using SQL or Spark to explore and filter data (e.g., flag high-value transactions).
-- Evaluate the model using metrics such as accuracy, precision, and recall.
 
----
 ## Stakeholders
-The insights from this project can be valuable for:
 
-  - Financial Institutions
-  - Credit Card Companies
-  - Consumers
-  - Insurance companies for Credit Cards
-  - Regulatory Government Organizations
+This project is designed to support decision-makers across various departments within a financial institution:
+
+| **Stakeholder**            | **Interest**                                                                 |
+|----------------------------|------------------------------------------------------------------------------|
+| Marketing Team             | Target churn-prone customers with personalized retention offers             |
+| Customer Success Managers  | Engage proactively with high-risk customers before they leave               |
+| Product Managers           | Identify product features or services that may be contributing to attrition |
+| Data Analysts              | Use model insights to develop ongoing reporting and trend analysis           |
+| Executive Leadership       | Monitor churn KPIs and allocate resources to improve customer lifetime value |
+
+---
+
+## Stakeholder Questions
+
+This project answers key business questions that stakeholders care about:
+
+- **Which customers are most likely to churn?**  
+  → Helps prioritize customer retention efforts.
+
+- **What factors contribute most to customer attrition?**  
+  → Enables data-driven decisions about policy and marketing strategy.
+
+- **How can we proactively identify high-risk customers before they leave?**  
+  → Supports building preventative outreach programs.
+
+- **Can we segment customers based on their behaviors and churn risk?**  
+  → Aids in tailoring offers and services to different customer groups.
+
+- **How accurate is our ability to predict future churn based on customer data?**  
+  → Builds confidence in the predictive model’s value and informs strategic planning.
+
+---
+
+## Objectives
+
+- Predict whether a customer will churn based on historical behavior and account metrics  
+- Achieve at least **75% classification accuracy**  
+- Identify which customer features most strongly influence churn  
+- Visualize insights to support data-driven decision making  
+
+---
+
+## Project Timeline
+
+| **Date**       | **Milestone**                                      |
+|----------------|-----------------------------------------------------|
+| April 8–10     | Dataset exploration, cleaning, and EDA             |
+| April 11–14    | Model training, testing, and optimization          |
+| April 15–17    | Tableau dashboard creation + GitHub repo cleanup   |
+| April 18–19    | Finalize README, visuals, and model results        |
+| April 20       | Group presentation prep and review                 |
+| **April 21**   |  **Project Due – Submit and Present**              |
+
+---
+
+## Machine Learning Strategy
+
+- **Problem Type**: Binary Classification  
+- **Target Variable**: `Attrition_Flag`  
+- **Algorithms Used**:
+  - Logistic Regression
+  - Random Forest Classifier
+- **Model Performance Goal**: ≥ **75% accuracy**
+
+---
+
+## Dataset
+
+- **Source**: [Gigasheet – Credit Card Customers](https://app.gigasheet.com/spreadsheet/credit-card-customers/8a7f5cd0_8522_4dd1_ad9d_4efe52507b2b)  
+- **Records**: ~1,000 customers  
+- **Features**:
+  - Demographics (e.g., Gender, Income Category, Education Level)
+  - Account Metrics (e.g., Credit Limit, Revolving Balance, Avg Open to Buy)
+  - Transaction Behavior (e.g., Total Transaction Count, Total Transaction Amount)
+  - `Attrition_Flag`: Indicates whether the customer churned
 
 ---
 
 ## Technologies Used
-+ Languages: Python
-+ ML Libraries: scikit-learn
-+ Data Tools: pandas, numpy, SQLAlchemy, PySpark
-+ Visualization: matplotlib, seaborn, plotly
-+ Platforms: Jupyter Notebooks, GitHub, Google Colab or VS Code
+
+| **Technology**      | **Purpose**                                  |
+|---------------------|----------------------------------------------|
+| Python & Pandas     | Data cleaning and feature engineering        |
+| Scikit-learn        | Machine learning modeling and evaluation     |
+| Matplotlib/Seaborn  | Visualizing distributions and insights       |
+| PostgreSQL          | Storing and retrieving data                  |
+| Amazon AWS          | Cloud hosting or database management         |
+| Tableau             | Stakeholder-friendly dashboards              |
+| GitHub              | Version control and collaboration            |
 
 ---
 
-## Datasets
-1.	PaySim: Simulated mobile money transaction data with fraud labels (MIT License).
-2.	BankSim: Simulated banking behaviors and anomalies.
-3.	Synthetic Option: If needed, we can generate realistic transactions using Faker and SDV, including fields like amount, merchant, location, time, and fraud label.
+## Model Optimization & Evaluation
+
+Model performance was monitored and improved through:
+
+- Iterative tuning of model hyperparameters  
+- Evaluation using cross-validation  
+- Feature selection and importance analysis  
+
+Results were documented in a CSV table and within the training script.
 
 ---
-## Timeline (Due April 21, 2025):
-- Apr 7-9: Get the data, explore it, and set up SQL or Spark.
-- Apr 10-12: Clean, normalize, and engineer features.
-- Apr 13–15: Train a baseline model and evaluate initial results.
-- Apr 16–17: Tune hyperparameters and optimize performance.
-- Apr 17–18: Finalize evaluation, clean up documentation and GitHub.
-- Apr 19–20: Prepare and rehearse the final presentation.
-- Apr 21: Final presentation and submission.
+
+## Tableau Dashboard
+
+An interactive Tableau dashboard summarizes:
+
+- Customer churn distribution  
+- Feature impact and patterns  
+- Model prediction summaries  
 
 ---
-## Expected Outcome:
-- A fraud detection model with strong performance (at least 75% accuracy or 0.80+ AUC).
-- A well-documented modeling process with visible iteration.
-- A polished, professional GitHub repo.
-- A confident and informative group presentation that shows a solid grasp of fraud detection in fintech.
 
+## Results Summary
 
+- **Best model**: Random Forest Classifier  
+- **Accuracy**: 75%
+- **Top churn predictors**:
+  - Total Transaction Count
+  - Total Revolving Balance
+  - Credit Limit
+  - Months on Book
+
+---
+
+## Repository Structure
+
+project4-churn-prediction/
+
+│
+
+├── data/                     # Raw and cleaned datasets
+
+├── notebooks/                # Jupyter notebooks for EDA and modeling
+
+├── scripts/                  # Final ML training and evaluation scripts
+
+├── tableau/                  # Tableau workbook or screenshots
+
+├── optimization_results.csv  # Model tuning documentation
+
+├── README.md                 # Project documentation
+
+└── .gitignore                # Files to exclude from version control
 
 
