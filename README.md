@@ -1,5 +1,15 @@
 # Predicting Customer Churn in the Credit Card Industry
 
+---
+
+## Team Members
+### James Garcia
+### David Williams
+### Svetlana Kachina
+### Ilknur Toptas
+
+---
+
 ## Project Overview
 This project addresses a key challenge faced by financial institutions: **customer churn**. Using machine learning, we developed a predictive model that determines whether a customer is likely to attrite (cancel their credit card account). By identifying at-risk customers, banks and credit card providers can take proactive steps to improve retention, reduce revenue loss, and better serve their clientele.
 
