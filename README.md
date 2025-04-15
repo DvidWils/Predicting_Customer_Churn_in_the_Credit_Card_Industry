@@ -11,7 +11,7 @@
 ---
 
 ## Project Overview
-This project addresses a key challenge faced by financial institutions: **customer churn**. Using machine learning, we developed a predictive model that determines whether a customer is likely to attrite (cancel their credit card account). By identifying at-risk customers, banks and credit card providers can take proactive steps to improve retention, reduce revenue loss, and better serve their clientele.
+This project tackles a critical challenge in the financial industry: **predicting customer churn** for credit card holders. Using machine learning, we built a predictive model that identifies customers likely to close their accounts. Early intervention helps reduce attrition and support customer retention strategies.
 
 ---
 
@@ -52,10 +52,14 @@ This project answers key business questions that stakeholders care about:
 
 ## Objectives
 
-- Predict whether a customer will churn based on historical behavior and account metrics  
-- Achieve at least **75% classification accuracy**  
-- Identify which customer features most strongly influence churn  
-- Visualize insights to support data-driven decision making  
+- Analyze customer credit card behavior to understand factors leading to churn
+- Clean and preprocess raw data for machine learning
+- Explore patterns and correlations through EDA and visualization
+- Upload cleaned dataset to AWS RDS (PostgreSQL) for remote accessibility
+- Build and compare multiple classification models (Logistic Regression, Decision Tree, Random Forest)
+- Optimize the best-performing model using GridSearchCV
+- Evaluate model performance using accuracy, recall, and F1-score metrics
+- Provide actionable insights based on model outputs and important features
 
 ---
 
@@ -80,94 +84,69 @@ This project answers key business questions that stakeholders care about:
 ---
 
 ## Machine Learning Strategy
-
-- **Problem Type**: Binary Classification  
-- **Target Variable**: `Attrition_Flag`  
-- **Algorithms Used**:
-  - Logistic Regression
-  - Random Forest Classifier
-- **Model Performance Goal**: ≥ **75% accuracy**
+- **Binary classification** task
+- Target variable: `Churn` (mapped from `Attrition_Flag`)
+- Models tested:
+  - Logistic Regression  
+  - Decision Tree  
+  - **Random Forest** (best performer)
+- Hyperparameter tuning using **GridSearchCV**
 
 ---
 
 ## Dataset
 
-- **Source**: [Gigasheet – Credit Card Customers](https://app.gigasheet.com/spreadsheet/credit-card-customers/8a7f5cd0_8522_4dd1_ad9d_4efe52507b2b)  
-- **Records**: ~1,000 customers  
+- **Source**: [Gigasheet Credit Card Customers](https://www.gigasheet.com/sample-data/credit-card-customers)  
+Records: ~10,000 customers
+
 - **Features**:
   - Demographics (e.g., Gender, Income Category, Education Level)
   - Account Metrics (e.g., Credit Limit, Revolving Balance, Avg Open to Buy)
   - Transaction Behavior (e.g., Total Transaction Count, Total Transaction Amount)
   - `Attrition_Flag`: Indicates whether the customer churned
+  - **License**: Publicly available sample data; free for educational use
+ 
 
 ---
 
 ## Technologies Used
 
-| **Technology**      | **Purpose**                                  |
-|---------------------|----------------------------------------------|
-| Python & Pandas     | Data cleaning and feature engineering        |
-| Scikit-learn        | Machine learning modeling and evaluation     |
-| Matplotlib/Seaborn  | Visualizing distributions and insights       |
-| PostgreSQL          | Storing and retrieving data                  |
-| Amazon AWS          | Cloud hosting or database management         |
-| Tableau             | Stakeholder-friendly dashboards              |
-| GitHub              | Version control and collaboration            |
+- `Python` – Core development language
+- `Pandas`, `NumPy` – Data wrangling
+- `Seaborn`, `Matplotlib` – EDA & visualizations
+- `Scikit-learn` – Modeling and evaluation
+- `PostgreSQL (AWS RDS)` – Cloud database for cleaned data
+- `GitHub` – Version control and collaboration
+
 
 ---
 
 ## Model Optimization & Evaluation
-
-Model performance was monitored and improved through:
-
-- Iterative tuning of model hyperparameters  
-- Evaluation using cross-validation  
-- Feature selection and importance analysis  
-
-Results were documented in a CSV table and within the training script.
-
----
-
-## Tableau Dashboard
-
-An interactive Tableau dashboard summarizes:
-
-- Customer churn distribution  
-- Feature impact and patterns  
-- Model prediction summaries  
+- **Random Forest** optimized using GridSearchCV:
+  - Max Depth: 10–15  
+  - Estimators: 50–150  
+- Metrics evaluated:
+  - Accuracy  
+  - Precision  
+  - Recall  
+  - F1-Score
 
 ---
 
 ## Results Summary
 
-- **Best model**: Random Forest Classifier  
-- **Accuracy**: 75%
-- **Top churn predictors**:
-  - Total Transaction Count
-  - Total Revolving Balance
-  - Credit Limit
-  - Months on Book
+| Model               | Accuracy | Recall | F1 Score |
+|--------------------|----------|--------|----------|
+| **Random Forest**  | **96.10%** | **98.30%** | **97.69%** |
+| Decision Tree      | 94.13%   | 96.06% | 96.49%   |
+| Logistic Regression| 91.31%   | 96.94% | 94.93%   |
+> **Top predictors**: `Total_Trans_Ct`, `Total_Trans_Amt` , `Total_Ct_Chng_Q4_Q1`
+
 
 ---
 
-## Repository Structure
+## AWS Integration
 
-project4-churn-prediction/
-
-│
-
-├── data/                     # Raw and cleaned datasets
-
-├── notebooks/                # Jupyter notebooks for EDA and modeling
-
-├── scripts/                  # Final ML training and evaluation scripts
-
-├── tableau/                  # Tableau workbook or screenshots
-
-├── optimization_results.csv  # Model tuning documentation
-
-├── README.md                 # Project documentation
-
-└── .gitignore                # Files to exclude from version control
-
-
+- Cleaned data was uploaded securely to an **AWS RDS PostgreSQL** instance
+- Access was limited to personal IP via **inbound rules**
+- Data connection used SQLAlchemy with SSL encryption
